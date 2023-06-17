@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<html>
+<head>
+    <title>Consulta del Dólar Blue</title>
+</head>
+<body>
+    <header>
+        <div class="card">
+            <h1>Valor del Dólar Blue en tiempo real.</h1>
+            <p id="blue-value-sell">Cargando...</p>
+         </div>
+    </header>
+
+
+
+    <script>
+        // Llamada a la API utilizando JavaScript
+        fetch('https://api.bluelytics.com.ar/v2/latest')
+            .then(response => response.json())
+            .then(data => {
+                // Actualización del valor del Dólar Blue (value_buy) en la página
+                const blueValueBuy = data.blue.value_buy;
+                document.getElementById('blue-value-sell').innerHTML = `Valor de compra del Dólar Blue : $${blueValueBuy}`;
+            })
+            .catch(error => {
+                console.error('Error al obtener el valor del Dólar Blue:', error);
+                document.getElementById('blue-value-sell').innerHTML = 'Error al obtener el valor del Dólar Blue';
+            });
+    </script>
+</body>
+</html>
