@@ -9,6 +9,12 @@ body {
     background-position: center;
     font-family: 'Josefin Sans', sans-serif;
   }
+
+.parrafo{
+ color: White;
+ font-size: 10px;
+ text-align: center;
+}
   
   header {
     padding: 10%;
